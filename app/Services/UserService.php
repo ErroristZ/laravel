@@ -15,7 +15,9 @@ class UserService extends BaseService
     public function getUserInfo(): array
     {
         $user = ['id' => 1, 'nickname' => '张三', 'age' => 18];
-        if(empty($user)) $this->throwBusinessException([Code::DELETED_ERROR, Code::getDescription(Code::DELETED_ERROR)]);
+        if(empty($user)) {
+            $this->throwBusinessException([Code::DELETED_ERROR, Code::getDescription(Code::DELETED_ERROR)]);
+        }
         return $user;
     }
 }
