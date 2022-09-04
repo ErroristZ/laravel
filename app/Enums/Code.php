@@ -6,14 +6,14 @@ use BenSampo\Enum\Enum;
 
 final class Code extends Enum
 {
-    const AUTHORIZATION = 403;
-    const SUCCESS = 200001;
-    const ERROR = 200002;
-    const DELETED_ERROR = 400202;
-    const CLIENT_PARAMETER_ERROR = 400200;
-    const CLIENT_NOT_FOUND_ERROR = 404001;
-    const CLIENT_METHOD_HTTP_TYPE_ERROR = 405001;
-    const SYSTEM_ERROR = 500001;
+    public const AUTHORIZATION = 403;
+    public const SUCCESS = 200001;
+    public const ERROR = 200002;
+    public const DELETED_ERROR = 400202;
+    public const CLIENT_PARAMETER_ERROR = 400200;
+    public const CLIENT_NOT_FOUND_ERROR = 404001;
+    public const CLIENT_METHOD_HTTP_TYPE_ERROR = 405001;
+    public const SYSTEM_ERROR = 500001;
 
     public static function getDescription($value): string
     {
