@@ -37,4 +37,9 @@ $this->verifyString('key');
 ```php
 $this->verifyBoolean('key');
 ```
-....
+
+### Log Viewer日志查看器
+
+默认情况下，该应用程序在以下位置可用：{APP_URL}/log-viewer。
+
+（例如https://laravel.test/log-viewer：）
