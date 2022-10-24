@@ -4,7 +4,6 @@ namespace App\Exceptions;
 
 use App\Enums\Code;
 use App\Helpers\ApiResponse;
-use App\Helpers\ResponseEnum;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
@@ -61,15 +60,21 @@ class Handler extends ExceptionHandler
     {
         // 请求类型错误异常抛出
         if ($e instanceof MethodNotAllowedHttpException) {
-            $this->throwBusinessException([Code::CLIENT_METHOD_HTTP_TYPE_ERROR, Code::getDescription(Code::CLIENT_METHOD_HTTP_TYPE_ERROR)]);
+            $this->throwBusinessException(
+                [Code::CLIENT_METHOD_HTTP_TYPE_ERROR, Code::getDescription(Code::CLIENT_METHOD_HTTP_TYPE_ERROR)]
+            );
         }
         // 参数校验错误异常抛出
         if ($e instanceof ValidationException) {
-            $this->throwBusinessException([Code::CLIENT_PARAMETER_ERROR, Code::getDescription(Code::CLIENT_PARAMETER_ERROR)]);
+            $this->throwBusinessException(
+                [Code::CLIENT_PARAMETER_ERROR, Code::getDescription(Code::CLIENT_PARAMETER_ERROR)]
+            );
         }
         // 路由不存在异常抛出
         if ($e instanceof NotFoundHttpException) {
-            $this->throwBusinessException([Code::CLIENT_NOT_FOUND_ERROR, Code::getDescription(Code::CLIENT_NOT_FOUND_ERROR)]);
+            $this->throwBusinessException(
+                [Code::CLIENT_NOT_FOUND_ERROR, Code::getDescription(Code::CLIENT_NOT_FOUND_ERROR)]
+            );
         }
         // 自定义错误异常抛出
         if ($e instanceof BusinessException) {
