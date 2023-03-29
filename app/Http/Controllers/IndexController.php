@@ -14,7 +14,7 @@ class IndexController extends BaseController
      * @return JsonResponse
      * @throws BusinessException
      */
-    public function index()
+    public function index(): JsonResponse
     {
         $id = $this->verifyId('id', null);
         return $this->success($id);
@@ -26,7 +26,7 @@ class IndexController extends BaseController
      * @return JsonResponse
      * @throws BusinessException
      */
-    public function info(UserService $userService)
+    public function info(UserService $userService): JsonResponse
     {
         $user = $userService->getUserInfo();
         return $this->success($user);
@@ -37,7 +37,7 @@ class IndexController extends BaseController
      * @param BlogRequest $request
      * @return JsonResponse
      */
-    public function store(BlogRequest $request)
+    public function store(BlogRequest $request): JsonResponse
     {
         return $this->success();
     }
