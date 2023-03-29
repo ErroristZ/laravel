@@ -12,20 +12,20 @@ trait ApiResponse
 {
     /**
      * 成功
-     * @param array|null $data
+     * @param null $data
      * @return JsonResponse
      */
-    public function success(?array $data = []): JsonResponse
+    public function success($data = null): JsonResponse
     {
         return $this->jsonResponse(Code::SUCCESS, Code::getDescription(Code::SUCCESS), $data);
     }
 
     /**
      * 失败
-     * @param array|null $data
+     * @param null $data
      * @return JsonResponse
      */
-    public function fail(?array $data = []): JsonResponse
+    public function fail($data = null): JsonResponse
     {
         return $this->jsonResponse(Code::ERROR, Code::getDescription(Code::ERROR), $data);
     }
@@ -56,7 +56,15 @@ trait ApiResponse
         return $this->success($this->paginate($page));
     }
 
-    private function paginate($page)
+    /**
+     * FunctionName: paginate
+     * Description:
+     * Author: zhangkang
+     * Date: 2023/3/29 20:31
+     * @param $page
+     * @return mixed
+     */
+    private function paginate($page): mixed
     {
         if ($page instanceof LengthAwarePaginator) {
             return [
@@ -89,7 +97,7 @@ trait ApiResponse
      * @param string $info
      * @throws BusinessException
      */
-    public function throwBusinessException(array $codeResponse = [], string $info = '')
+    public function throwBusinessException(array $codeResponse = [], string $info = ''): void
     {
         $codeResponse = empty($codeResponse) ? [Code::ERROR, Code::getDescription(Code::ERROR)] : $codeResponse;
         throw new BusinessException($codeResponse, $info);
