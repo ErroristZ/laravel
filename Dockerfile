@@ -1,9 +1,6 @@
-FROM hyperf/hyperf:8.1-alpine-v3.15-swoole
+FROM webdevops/php-nginx:8.2
 
-RUN apk add --no-cache --repository http://mirrors.aliyun.com/alpine/edge/community gnu-libiconv
+COPY . /app
 
-COPY . /laravel
-
-WORKDIR /laravel
-
-RUN composer install --no-dev
+RUN /bin/bash -c 'cp /app/nginx.conf /opt/docker/etc/nginx/vhost.conf'
+RUN /bin/bash -c 'chmod 777 -R /app/storage'

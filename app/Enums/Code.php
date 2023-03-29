@@ -7,7 +7,8 @@ use BenSampo\Enum\Enum;
 final class Code extends Enum
 {
     public const AUTHORIZATION = 403;
-    public const SUCCESS = 200001;
+    public const SUCCESS = 200;
+
     public const ERROR = 200002;
     public const DELETED_ERROR = 400202;
     public const CLIENT_PARAMETER_ERROR = 400200;
